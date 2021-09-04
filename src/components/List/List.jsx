@@ -36,21 +36,21 @@ const List = ({
 
   return (
     <div className={classes.container}>
-      <Typography variant="h4">
+      <Typography variant='h4'>
         Restraunts, Hotels & Attractions around you
       </Typography>
       {isLoading ? (
         <div className={classes.loading}>
-          <CircularProgress size="5rem" />
+          <CircularProgress size='5rem' />
         </div>
       ) : (
         <>
           <FormControl className={classes.formControl}>
             <InputLabel>Type</InputLabel>
             <Select value={type} onChange={(e) => setType(e.target.value)}>
-              <MenuItem value="restaurants">Restaurants</MenuItem>
-              <MenuItem value="hotels">Hotels</MenuItem>
-              <MenuItem value="attractions">Attractions</MenuItem>
+              <MenuItem value='restaurants'>Restaurants</MenuItem>
+              <MenuItem value='hotels'>Hotels</MenuItem>
+              <MenuItem value='attractions'>Attractions</MenuItem>
             </Select>
           </FormControl>
           <FormControl className={classes.formControl}>
@@ -64,7 +64,7 @@ const List = ({
           </FormControl>
           <Grid container spacing={3} className={classes.list}>
             {places?.map((place, i) => (
-              <Grid item key={i} xs={12}>
+              <Grid ref={elRefs[i]} item key={i} xs={12}>
                 <PlaceDetails
                   place={place}
                   selected={Number(childClicked) === i}
